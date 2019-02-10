@@ -1,0 +1,9 @@
+def generate_RSI_stats(df, series,RSI_decay=3):
+    df[str('diff_'+series)] = df[series].diff()
+    df[series+'_up'] = df['diff_'+series]
+    df.loc[df['diff_'+series] < 0, series+'_up'] = 0
+    df[series+'_up'] = (df[series+'_up']).ewm(alpha=(1/RSI_decay)).mean()
+    df[series+'_dn'] = df['diff_'+series]
+    df.loc[df['diff_'+series] > 0, series+'_dn'] = 0
+    df[series+'_dn'] = (df[series+'_dn']).ewm(alpha=(1/RSI_decay)).mean()
+    df[series+'_RSI_signal'] = 100-100/(1-df[series+'_up']/df[series+'_dn'])
