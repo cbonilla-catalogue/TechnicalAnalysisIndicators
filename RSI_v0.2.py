@@ -11,8 +11,6 @@ from fredapi import Fred
 fred = Fred(api_key='287dcf1a4ec41e9f44645fb74180eb42')
 
 #%% ----------------------------------- Read Data
-#df = pd.read_excel('{}/{}'.format(csv_location, csv_filename))
-#USrates = ['T10YIEM','DGS1','DGS10','TB3MS']
 USrates = ['DGS1','DGS10']
 
 df = pd.DataFrame()
