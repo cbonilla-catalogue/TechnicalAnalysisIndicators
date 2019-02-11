@@ -1,1 +1,1 @@
-# TechnicalAnalysisIndicators
+# Technical Analysis Indicators
